@@ -22,13 +22,12 @@ namespace csharp_server
         protected override void OnMessage(MessageEventArgs e)
         {
             Console.WriteLine("Received message from EchoAll client: " + e.Data);
-            //for (int i = 0; i < 50; i++)
-            //{
+            for (int i = 0; i < 50; i++)
+            {
                 //Sessions.Broadcast(e.Data);
-                Sessions.Broadcast("Hola Mundo " /* +  i.ToString()*/);
-                //Thread.Sleep(10000);
-            //}
-            
+                Sessions.Broadcast("Hola Mundo " +  i.ToString());
+                Thread.Sleep(1000);
+            }
         }
     }
 
