@@ -13,7 +13,11 @@ namespace csharp_server
         protected override void OnMessage(MessageEventArgs e)
         {
             Console.WriteLine("Received message from Echo client: " + e.Data);
-            Send(e.Data);
+            for (int i = 0; i < 50; i++) 
+            {
+                Send("Hola Mundo " + i.ToString());
+                Thread.Sleep(1000);
+            }
         }
     }
 
@@ -21,7 +25,7 @@ namespace csharp_server
     {
         protected override void OnMessage(MessageEventArgs e)
         {
-            Console.WriteLine("Received message from EchoAll client: " + e.Data);
+            //Console.WriteLine("Received message from EchoAll client: " + e.Data);
             for (int i = 0; i < 50; i++)
             {
                 //Sessions.Broadcast(e.Data);
